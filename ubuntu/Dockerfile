@@ -6,7 +6,6 @@ RUN mkdir -p /var/run/sshd
 # installing ssh server
 RUN apt-get update
 RUN apt-get install -y openssh-server wget tmux vim zsh git gdb build-essential python
-RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
 # installing sudo
 RUN apt-get install -y sudo
