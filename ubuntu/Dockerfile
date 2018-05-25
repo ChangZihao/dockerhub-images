@@ -1,14 +1,15 @@
-FROM ubuntu:16:04
+FROM ubuntu:16.04
 
 # new a directory for sshd to run
 RUN mkdir -p /var/run/sshd
 
 # installing ssh server
 RUN apt-get update
-RUN apt-get install -y openssh-server wget tmux vim zsh
+RUN apt-get install -y openssh-server wget tmux vim zsh git gdb build-essential python
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
 # installing sudo
-# RUN apt-get install -y sudo
+RUN apt-get install -y sudo
 
 # make ssh services use IPv4 to let X11 forwarding work correctly
 RUN echo AddressFamily inet >> /etc/ssh/sshd_config
